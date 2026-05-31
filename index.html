@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fosforicit — Vladyslava Čeledová</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --text: #e0ddd6;
+      --text-muted: #7a7770;
+      --gold: #c9a84c;
+      --red: #9b2c2c;
+      --nav-height: 64px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ───────────────────────────────────────────────── */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      background: rgba(10, 10, 10, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* ── HERO ──────────────────────────────────────────────── */
+
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + 2rem) 2rem 5rem;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 11vw, 9rem);
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #fff;
+      animation: phosphor 7s ease-in-out infinite;
+      margin-bottom: 1.8rem;
+      line-height: 1;
+    }
+
+    @keyframes phosphor {
+      0%, 100% {
+        text-shadow:
+          0 0 8px rgba(255, 255, 255, 0.06),
+          0 0 25px rgba(255, 255, 255, 0.03);
+      }
+      50% {
+        text-shadow:
+          0 0 15px rgba(255, 255, 255, 0.22),
+          0 0 50px rgba(255, 255, 255, 0.09),
+          0 0 100px rgba(210, 215, 255, 0.05);
+      }
+    }
+
+    .hero-motto {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.7rem);
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── ABOUT ─────────────────────────────────────────────── */
+
+    #about {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 9rem 3rem 8rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .about-text p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.95rem;
+      line-height: 1.95;
+      color: var(--text);
+      max-width: 540px;
+    }
+
+    .about-text a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.35);
+      transition: border-color 0.3s;
+    }
+
+    .about-text a:hover {
+      border-color: var(--gold);
+    }
+
+    .portrait-wrapper {
+      position: relative;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .portrait-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+
+    .portrait-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      box-shadow: inset 0 0 55px rgba(10, 10, 10, 0.65);
+    }
+
+    /* ── DIVIDER ───────────────────────────────────────────── */
+
+    .section-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+
+    /* ── GALLERY ───────────────────────────────────────────── */
+
+    #gallery {
+      padding: 7rem 3rem 6rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    #gallery h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3.5rem;
+    }
+
+    .gallery-grid {
+      columns: 3 260px;
+      column-gap: 1.5rem;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: opacity 0.35s;
+    }
+
+    .gallery-item:hover img {
+      opacity: 0.78;
+    }
+
+    .gallery-caption {
+      padding: 0.8rem 0 0.3rem;
+    }
+
+    .gallery-caption h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-caption p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* ── LIGHTBOX ──────────────────────────────────────────── */
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 6, 6, 0.96);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+      cursor: pointer;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 88vw;
+      max-height: 78vh;
+      object-fit: contain;
+      cursor: default;
+    }
+
+    .lightbox-caption {
+      margin-top: 1.8rem;
+      text-align: center;
+      cursor: default;
+    }
+
+    .lightbox-caption h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .lightbox-caption p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.8rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      transition: color 0.3s;
+      line-height: 1;
+      padding: 0.4rem;
+    }
+
+    .lightbox-close:hover {
+      color: var(--text);
+    }
+
+    /* ── FOOTER ────────────────────────────────────────────── */
+
+    footer {
+      border-top: 1px solid rgba(201, 168, 76, 0.1);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-copy {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .footer-link {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+      transition: border-color 0.3s;
+    }
+
+    .footer-link:hover {
+      border-color: var(--gold);
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────────── */
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 1.5rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+
+      #about {
+        grid-template-columns: 1fr;
+        padding: 6rem 1.5rem 5rem;
+        gap: 3rem;
+      }
+
+      .portrait-wrapper {
+        order: -1;
+        margin: 0 auto;
+      }
+
+      #gallery {
+        padding: 5rem 1.5rem 4rem;
+      }
+
+      .gallery-grid {
+        columns: 2 160px;
+        column-gap: 1rem;
+      }
+
+      .gallery-item {
+        margin-bottom: 1rem;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1.2rem;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        columns: 1;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#hero" class="nav-logo">Fosforicit</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <h1 class="hero-title">Fosforicit</h1>
+    <p class="hero-motto">Stories written in stone</p>
+    <p class="hero-name">Vladyslava Čeledová</p>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section id="about">
+    <div class="about-text">
+      <h2>About</h2>
+      <p>
+        My name is Vlada. I paint on natural slate — white, gold, and occasionally red on dark stone.
+        White is matter, gold is light, red is life. Each piece starts with observation: people, nature,
+        moments worth keeping. I'm not a trained artist. I'm a physicist and project manager who sees
+        the world in systems and patterns. That's what shows up in the work. Fosforicit means
+        phosphorescent — light emerging from darkness. That's the point. Originals are available.
+        Reach me on <a href="https://www.linkedin.com/in/vladyslava-celedova/" target="_blank" rel="noopener">LinkedIn →</a>
+      </p>
+    </div>
+    <div class="portrait-wrapper">
+      <img src="images/vlada.jpg" alt="Vladyslava Čeledová">
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+
+      <div class="gallery-item" data-title="Steady in the Wind" data-meta="20 × 30 cm · Acrylic on slate · Prague, 2026">
+        <img src="images/Steady in the wind.jpg" alt="Steady in the Wind" loading="lazy">
+        <div class="gallery-caption">
+          <h3>Steady in the Wind</h3>
+          <p>20 × 30 cm · Acrylic on slate · Prague, 2026</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-title="Eruption of Etna" data-meta="15 × 30 cm · Acrylic on slate · Prague, 2026">
+        <img src="images/Eruption.jpg" alt="Eruption of Etna" loading="lazy">
+        <div class="gallery-caption">
+          <h3>Eruption of Etna</h3>
+          <p>15 × 30 cm · Acrylic on slate · Prague, 2026</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-title="The Path of Fire" data-meta="20 × 20 cm · Acrylic on slate · Prague, 2026">
+        <img src="images/The path of fire.jpg" alt="The Path of Fire" loading="lazy">
+        <div class="gallery-caption">
+          <h3>The Path of Fire</h3>
+          <p>20 × 20 cm · Acrylic on slate · Prague, 2026</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-title="The Wave" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026">
+        <img src="images/the wave.jpg" alt="The Wave" loading="lazy">
+        <div class="gallery-caption">
+          <h3>The Wave</h3>
+          <p>13 × 13 cm · Acrylic on slate · Prague, 2026</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-title="The Road through Time" data-meta="20 × 20 cm · Acrylic on slate · Prague, 2026">
+        <img src="images/the road through time.jpg" alt="The Road through Time" loading="lazy">
+        <div class="gallery-caption">
+          <h3>The Road through Time</h3>
+          <p>20 × 20 cm · Acrylic on slate · Prague, 2026</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-title="Poppies" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026">
+        <img src="images/poppies.jpg" alt="Poppies" loading="lazy">
+        <div class="gallery-caption">
+          <h3>Poppies</h3>
+          <p>13 × 13 cm · Acrylic on slate · Prague, 2026</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-title="Thistles" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026">
+        <img src="images/flowers.jpg" alt="Thistles" loading="lazy">
+        <div class="gallery-caption">
+          <h3>Thistles</h3>
+          <p>13 × 13 cm · Acrylic on slate · Prague, 2026</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-title="Moss" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026">
+        <img src="images/the moss.jpg" alt="Moss" loading="lazy">
+        <div class="gallery-caption">
+          <h3>Moss</h3>
+          <p>13 × 13 cm · Acrylic on slate · Prague, 2026</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-copy">© 2026 Fosforicit · Vladyslava Čeledová</span>
+    <a href="https://www.linkedin.com/in/vladyslava-celedova/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption">
+      <h3 id="lightbox-title"></h3>
+      <p id="lightbox-meta"></p>
+    </div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbTitle = document.getElementById('lightbox-title');
+    const lbMeta = document.getElementById('lightbox-meta');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbTitle.textContent = item.dataset.title;
+        lbMeta.textContent = item.dataset.meta;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
