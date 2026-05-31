@@ -279,6 +279,24 @@
       text-transform: uppercase;
     }
 
+    .gallery-status {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 0.35rem;
+    }
+
+    .gallery-status.available {
+      color: var(--gold);
+    }
+
+    .gallery-status.sold {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
     /* ── LIGHTBOX ──────────────────────────────────────────── */
 
     .lightbox {
@@ -347,6 +365,148 @@
 
     .lightbox-close:hover {
       color: var(--text);
+    }
+
+    .lightbox-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-top: 0.8rem;
+      cursor: default;
+    }
+
+    .lightbox-sold {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-top: 0.8rem;
+      cursor: default;
+    }
+
+    .lightbox-inquire {
+      margin-top: 1.2rem;
+      background: transparent;
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.8rem;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .lightbox-inquire:hover {
+      background: rgba(201, 168, 76, 0.08);
+      border-color: var(--gold);
+    }
+
+    /* ── CONTACT ───────────────────────────────────────────── */
+
+    #contact {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 7rem 3rem 6rem;
+    }
+
+    #contact h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    #contact .contact-intro {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.88rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: rgba(201, 168, 76, 0.5);
+    }
+
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .contact-form button[type="submit"] {
+      align-self: flex-start;
+      background: transparent;
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.8rem 2.2rem;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .contact-form button[type="submit"]:hover {
+      background: rgba(201, 168, 76, 0.08);
+      border-color: var(--gold);
+    }
+
+    .contact-or {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 1.4rem;
+    }
+
+    .contact-or a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.35);
+      transition: border-color 0.3s;
+    }
+
+    .contact-or a:hover {
+      border-color: var(--gold);
     }
 
     /* ── FOOTER ────────────────────────────────────────────── */
@@ -426,6 +586,10 @@
         text-align: center;
         padding: 2rem 1.5rem;
       }
+
+      #contact {
+        padding: 5rem 1.5rem 4rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -446,6 +610,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -465,8 +630,8 @@
         White is matter, gold is light, red is life. Each piece starts with observation: people, nature,
         moments worth keeping. I'm not a trained artist. I'm a physicist and project manager who sees
         the world in systems and patterns. That's what shows up in the work. Fosforicit means
-        phosphorescent — light emerging from darkness. That's the point. Originals are available.
-        Reach me on <a href="https://www.linkedin.com/in/vladyslava-celedova/" target="_blank" rel="noopener">LinkedIn →</a>
+        phosphorescent — light emerging from darkness. That's the point. Originals are available —
+        <a href="#contact">inquire below</a>.
       </p>
     </div>
     <div class="portrait-wrapper">
@@ -480,72 +645,97 @@
     <h2>Gallery</h2>
     <div class="gallery-grid">
 
-      <div class="gallery-item" data-title="Steady in the Wind" data-meta="20 × 30 cm · Acrylic on slate · Prague, 2026">
+      <div class="gallery-item" data-title="Steady in the Wind" data-meta="20 × 30 cm · Acrylic on slate · Prague, 2026" data-status="available" data-price="3,200 CZK">
         <img src="images/Steady in the wind.jpg" alt="Steady in the Wind" loading="lazy">
         <div class="gallery-caption">
           <h3>Steady in the Wind</h3>
           <p>20 × 30 cm · Acrylic on slate · Prague, 2026</p>
+          <p class="gallery-status available">Available</p>
         </div>
       </div>
 
-      <div class="gallery-item" data-title="Eruption of Etna" data-meta="15 × 30 cm · Acrylic on slate · Prague, 2026">
+      <div class="gallery-item" data-title="Eruption of Etna" data-meta="15 × 30 cm · Acrylic on slate · Prague, 2026" data-status="available" data-price="3,200 CZK">
         <img src="images/Eruption.jpg" alt="Eruption of Etna" loading="lazy">
         <div class="gallery-caption">
           <h3>Eruption of Etna</h3>
           <p>15 × 30 cm · Acrylic on slate · Prague, 2026</p>
+          <p class="gallery-status available">Available</p>
         </div>
       </div>
 
-      <div class="gallery-item" data-title="The Path of Fire" data-meta="20 × 20 cm · Acrylic on slate · Prague, 2026">
+      <div class="gallery-item" data-title="The Path of Fire" data-meta="20 × 20 cm · Acrylic on slate · Prague, 2026" data-status="available" data-price="2,400 CZK">
         <img src="images/The path of fire.jpg" alt="The Path of Fire" loading="lazy">
         <div class="gallery-caption">
           <h3>The Path of Fire</h3>
           <p>20 × 20 cm · Acrylic on slate · Prague, 2026</p>
+          <p class="gallery-status available">Available</p>
         </div>
       </div>
 
-      <div class="gallery-item" data-title="The Wave" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026">
+      <div class="gallery-item" data-title="The Wave" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026" data-status="available" data-price="1,200 CZK">
         <img src="images/the wave.jpg" alt="The Wave" loading="lazy">
         <div class="gallery-caption">
           <h3>The Wave</h3>
           <p>13 × 13 cm · Acrylic on slate · Prague, 2026</p>
+          <p class="gallery-status available">Available</p>
         </div>
       </div>
 
-      <div class="gallery-item" data-title="The Road through Time" data-meta="20 × 20 cm · Acrylic on slate · Prague, 2026">
+      <div class="gallery-item" data-title="The Road through Time" data-meta="20 × 20 cm · Acrylic on slate · Prague, 2026" data-status="available" data-price="2,400 CZK">
         <img src="images/the road through time.jpg" alt="The Road through Time" loading="lazy">
         <div class="gallery-caption">
           <h3>The Road through Time</h3>
           <p>20 × 20 cm · Acrylic on slate · Prague, 2026</p>
+          <p class="gallery-status available">Available</p>
         </div>
       </div>
 
-      <div class="gallery-item" data-title="Poppies" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026">
+      <div class="gallery-item" data-title="Poppies" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026" data-status="available" data-price="1,200 CZK">
         <img src="images/poppies.jpg" alt="Poppies" loading="lazy">
         <div class="gallery-caption">
           <h3>Poppies</h3>
           <p>13 × 13 cm · Acrylic on slate · Prague, 2026</p>
+          <p class="gallery-status available">Available</p>
         </div>
       </div>
 
-      <div class="gallery-item" data-title="Thistles" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026">
+      <div class="gallery-item" data-title="Thistles" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026" data-status="available" data-price="1,200 CZK">
         <img src="images/flowers.jpg" alt="Thistles" loading="lazy">
         <div class="gallery-caption">
           <h3>Thistles</h3>
           <p>13 × 13 cm · Acrylic on slate · Prague, 2026</p>
+          <p class="gallery-status available">Available</p>
         </div>
       </div>
 
-      <div class="gallery-item" data-title="Moss" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026">
+      <div class="gallery-item" data-title="Moss" data-meta="13 × 13 cm · Acrylic on slate · Prague, 2026" data-status="available" data-price="1,200 CZK">
         <img src="images/the moss.jpg" alt="Moss" loading="lazy">
         <div class="gallery-caption">
           <h3>Moss</h3>
           <p>13 × 13 cm · Acrylic on slate · Prague, 2026</p>
+          <p class="gallery-status available">Available</p>
         </div>
       </div>
 
     </div>
   </section>
+
+  <div class="section-divider"></div>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <p class="contact-intro">To inquire about a painting or commission, write to me.</p>
+    <form class="contact-form" action="https://formspree.io/f/xlgvkzza" method="POST">
+      <input type="hidden" name="painting" id="inquire-painting">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" id="contact-message" placeholder="Your message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p class="contact-or">or connect with me on <a href="https://www.linkedin.com/in/vladyslava-celedova/" target="_blank" rel="noopener">LinkedIn →</a></p>
+  </section>
+
+  <div class="section-divider"></div>
 
   <footer>
     <span class="footer-copy">© 2026 Fosforicit · Vladyslava Čeledová</span>
@@ -558,6 +748,9 @@
     <div class="lightbox-caption">
       <h3 id="lightbox-title"></h3>
       <p id="lightbox-meta"></p>
+      <p class="lightbox-price" id="lightbox-price"></p>
+      <p class="lightbox-sold" id="lightbox-sold">This piece has found its home.</p>
+      <button class="lightbox-inquire" id="lightbox-inquire">Inquire about this piece</button>
     </div>
   </div>
 
@@ -566,17 +759,36 @@
     const lbImg = document.getElementById('lightbox-img');
     const lbTitle = document.getElementById('lightbox-title');
     const lbMeta = document.getElementById('lightbox-meta');
+    const lbPrice = document.getElementById('lightbox-price');
+    const lbSold = document.getElementById('lightbox-sold');
+    const lbInquire = document.getElementById('lightbox-inquire');
 
     document.querySelectorAll('.gallery-item').forEach(item => {
       item.addEventListener('click', () => {
         const img = item.querySelector('img');
+        const available = item.dataset.status === 'available';
+
         lbImg.src = img.src;
         lbImg.alt = img.alt;
         lbTitle.textContent = item.dataset.title;
         lbMeta.textContent = item.dataset.meta;
+
+        lbPrice.textContent = available ? item.dataset.price : '';
+        lbPrice.style.display = available ? 'block' : 'none';
+        lbSold.style.display = available ? 'none' : 'block';
+        lbInquire.style.display = available ? 'inline-block' : 'none';
+
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
       });
+    });
+
+    lbInquire.addEventListener('click', () => {
+      const title = lbTitle.textContent;
+      document.getElementById('inquire-painting').value = title;
+      document.getElementById('contact-message').value = `I am interested in "${title}".`;
+      closeLightbox();
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     });
 
     function closeLightbox() {
